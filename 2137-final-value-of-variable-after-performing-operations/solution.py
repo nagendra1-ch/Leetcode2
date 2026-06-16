@@ -4,7 +4,7 @@ class Solution:
         for i in operations:
             if i=='++X' or i=='X++':
                 ans=ans+1
-            if i=='--X' or i=='X--':
+            else:
                 ans=ans-1
         return ans
         
