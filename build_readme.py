@@ -1,6 +1,6 @@
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Path configuration
 REPO_ROOT = "."
@@ -70,8 +70,9 @@ def generate_dashboard():
         table_rows.append(row)
         
     total_solved = len(problems)
+    current_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
     
-    # Building Markdown UI matching image_8facca.jpg
+    # Building Markdown UI matching your layout
     markdown = f"""# 🏆 LeetCode Solutions
 
 <p align="center">
@@ -90,7 +91,7 @@ def generate_dashboard():
 | **Medium** | {stats['Medium']} |
 | **Hard** | {stats['Hard']} |
 | **Languages** | Python 3, MySQL |
-| **Last Updated** | {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')} |
+| **Last Updated** | {current_time} |
 
 ## 📁 Solutions
 
